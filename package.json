@@ -9,13 +9,18 @@
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watchAll",
-    "test-coverage": "jest --coverage"
+    "test-coverage": "jest --coverage",
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-jest": "^22.4.3",
     "babel-preset-env": "^1.6.1",
+    "cross-env": "5.1.4",
     "jest": "^22.4.3",
+    "laravel-mix": "^2.1.11",
     "regenerator-runtime": "^0.11.1"
   },
   "jest": {
