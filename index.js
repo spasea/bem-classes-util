@@ -106,7 +106,7 @@ class Classes {
     return classesArr
   }
 
-  getClassesList (list) {
+  static getClassesList (list) {
     let classesArr = []
 
     if (Array.isArray(list)) return list.join(' ')
@@ -118,8 +118,8 @@ class Classes {
     return classesArr.join(' ')
   }
 
-  resultList (list) {
-    return {className: this.getClassesList(list)}
+  static resultList (list) {
+    return {className: Classes.getClassesList(list)}
   }
 }
 

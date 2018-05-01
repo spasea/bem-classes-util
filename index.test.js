@@ -1,4 +1,4 @@
-import Classes, { cls } from './index'
+import Classes from './index'
 
 test('get base name', () => {
   const cl = new Classes({ baseClass: 'search' })
@@ -68,11 +68,11 @@ test('not element name with modifiers object', () => {
 })
 
 test('getting classlist with the concating method from array', () => {
-  expect(cls.getClassesList(['class1', 'class2'])).toBe('class1 class2')
+  expect(Classes.getClassesList(['class1', 'class2'])).toBe('class1 class2')
 })
 
 test('getting classlist object with the concating method from object', () => {
-  expect(cls.resultList({
+  expect(Classes.resultList({
     'class1': true,
     'class2': true,
     'class3': false
