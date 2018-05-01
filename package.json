@@ -1,0 +1,26 @@
+{
+  "name": "bem-classes-util",
+  "version": "0.0.1",
+  "description": "A utility to manage classnames conveniently",
+  "main": "index.js",
+  "author": "Peter Smaznoy <ithespv@gmail.com>",
+  "license": "MIT",
+  "repository": "https://github.com/spasea/bem-classnames-util.git",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watchAll",
+    "test-coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^22.4.3",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.3",
+    "regenerator-runtime": "^0.11.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  }
+}
