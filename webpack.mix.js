@@ -1,3 +1,3 @@
 let mix = require('laravel-mix');
 
-mix.js('lib/index.js', './')
+mix.babel('lib/index.js', './index.js')
