@@ -52,7 +52,7 @@ class Modifiers {
    * @returns {Array}
    */
   addModifiersToElement (element, modifiers, commonArray) {
-    let workingArray: any = [...commonArray]
+    let workingArray: string[] = [...commonArray]
 
     if (!workingArray.includes(element)) {
       workingArray.push(element)

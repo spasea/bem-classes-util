@@ -85,7 +85,7 @@ class Classes {
    * @param options
    * @returns {Array}
    */
-  static optionsToArray (options) {
+  static optionsToArray (options: any) {
     const isString = typeof options === "string"
     const isArray = options.length === undefined
 
@@ -120,5 +120,3 @@ class Classes {
 }
 
 export default Classes
-
-export const cls = new Classes({})

@@ -1,4 +1,4 @@
-import Classes from './index'
+import Classes from '../lib/index'
 
 describe('Base class testing', () => {
   it('get base name', () => {

@@ -10,12 +10,17 @@
     "moduleResolution": "node",
     "target": "es2015",
     "noImplicitAny": false,
-    "sourceMap": false
+    "sourceMap": false,
+    "lib": [
+      "dom",
+      "es7"
+    ]
   },
   "include": [
     "lib/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "__tests__"
   ]
 }
