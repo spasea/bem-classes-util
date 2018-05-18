@@ -26,7 +26,7 @@ If you need only to add an element you can simply pass a string to this method
 You can pass an object of elements or an array as well
 ```javascript
   SW.result([ 'element1', 'element2' ]) // --> { className: 'site-wrapper__element1 site-wrapper__element2' }
-  SW.result({ 'element1': true, 'element2': true, 'element3': false }) // --> { className: 'site-wrapper__element1 site-wrapper__element2' }
+  SW.result([{ 'element1': true }, { 'element2': true }, { 'element3': false }]) // --> { className: 'site-wrapper__element1 site-wrapper__element2' }
 ```
 
 
