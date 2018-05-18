@@ -7,31 +7,29 @@ class Modifiers implements ModifiersInterface {
     this.modificationSymbol = modificationSymbol
   }
 
-  modifiersObjectMap (modifiers: object, element: string): string[] {
+  modifiersObjectMap (modifiers: object): string[] {
     let classNames = []
 
     Object.keys(modifiers).map(modifier => modifiers[modifier]
-      ? classNames.push([element, modifier].join(this.modificationSymbol))
-      : null
-    )
+      && classNames.push(modifier))
 
     return classNames
   }
 
-  resolveElementModifiers (modifiers: object | string | string[], element: string): string[] {
+  elementModifiersFactory (modifiers: object | string | string[]): string[] {
     if (!modifiers) {
       return []
     }
 
     if (typeof modifiers === 'object' && !Array.isArray(modifiers)) {
-      return this.modifiersObjectMap(modifiers, element)
+      return this.modifiersObjectMap(modifiers)
     }
 
     if (typeof modifiers === "string") {
-      modifiers = [modifiers]
+      return [modifiers]
     }
 
-    return modifiers.map(modifier => [element, modifier].join(this.modificationSymbol))
+    return modifiers
   }
 
   addModifiersToElement (modifiers: object | string | string[], element: string, commonArray: string[]): string[] {
@@ -41,7 +39,8 @@ class Modifiers implements ModifiersInterface {
       workingArray.push(element)
     }
 
-    let elementModifiers = this.resolveElementModifiers(modifiers, element)
+    let elementModifiers = this.elementModifiersFactory(modifiers)
+      .map(modifier => [element, modifier].join(this.modificationSymbol))
 
     if (elementModifiers.length) {
       workingArray.push(...elementModifiers)

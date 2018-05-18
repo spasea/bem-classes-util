@@ -2,14 +2,30 @@ import Modifiers from '../lib/Modifiers'
 
 const mod = new Modifiers('--')
 
-it('check resolveElementModifiers with object', () => {
-  expect(mod.resolveElementModifiers({ new: true }, 'elem')).toEqual(["elem--new"])
+describe('elementModifiersFactory', () => {
+  it('check object', () => {
+    expect(mod.elementModifiersFactory({ new: true })).toEqual(["new"])
+  })
+
+  it('check string', () => {
+    expect(mod.elementModifiersFactory('new')).toEqual(["new"])
+  })
+
+  it('check array', () => {
+    expect(mod.elementModifiersFactory(['new'])).toEqual(["new"])
+  })
 })
 
-it('check resolveElementModifiers with string', () => {
-  expect(mod.resolveElementModifiers('new', 'elem')).toEqual(["elem--new"])
-})
+describe('addModifiersToElement', () => {
+  it('check object', () => {
+    expect(mod.addModifiersToElement({ new: true, old: false }, 'elem', [])).toEqual(["elem", "elem--new"])
+  })
 
-it('check resolveElementModifiers with array', () => {
-  expect(mod.resolveElementModifiers(['new'], 'elem')).toEqual(["elem--new"])
+  it('check string', () => {
+    expect(mod.addModifiersToElement('new', 'elem', [])).toEqual(["elem", "elem--new"])
+  })
+
+  it('check array', () => {
+    expect(mod.addModifiersToElement(['new'], 'elem', [])).toEqual(["elem", "elem--new"])
+  })
 })
