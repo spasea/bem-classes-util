@@ -1,17 +1,13 @@
-class Modifiers {
+import { ModifiersInterface } from '../interfaces/Modifiers.interface'
+
+class Modifiers implements ModifiersInterface {
   private readonly modificationSymbol: string
 
-  constructor (modificationSymbol) {
+  constructor (modificationSymbol: string) {
     this.modificationSymbol = modificationSymbol
   }
 
-  /**
-   *
-   * @param modifiers
-   * @param element
-   * @returns {Array}
-   */
-  modifiersObjectMap(modifiers, element) {
+  modifiersObjectMap (modifiers: object, element: string): string[] {
     let classNames = []
 
     Object.keys(modifiers).map(modifier => modifiers[modifier]
@@ -22,18 +18,12 @@ class Modifiers {
     return classNames
   }
 
-  /**
-   *
-   * @param modifiers
-   * @param element
-   * @returns {Array}
-   */
-  resolveElementModifiers (modifiers, element) {
+  resolveElementModifiers (modifiers: object | string | string[], element: string): string[] {
     if (!modifiers) {
       return []
     }
 
-    if (modifiers.length === undefined) {
+    if (typeof modifiers === 'object' && !Array.isArray(modifiers)) {
       return this.modifiersObjectMap(modifiers, element)
     }
 
@@ -44,15 +34,8 @@ class Modifiers {
     return modifiers.map(modifier => [element, modifier].join(this.modificationSymbol))
   }
 
-  /**
-   *
-   * @param element
-   * @param modifiers
-   * @param commonArray
-   * @returns {Array}
-   */
-  addModifiersToElement (element, modifiers, commonArray) {
-    let workingArray: string[] = [...commonArray]
+  addModifiersToElement (modifiers: object | string | string[], element: string, commonArray: string[]): string[] {
+    let workingArray = [...commonArray]
 
     if (!workingArray.includes(element)) {
       workingArray.push(element)

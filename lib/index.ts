@@ -1,3 +1,6 @@
+import { ClassesOptionsInterface } from '../interfaces/Classes.interface'
+import { ModifiersInterface } from '../interfaces/Modifiers.interface'
+
 import Modifiers from './Modifiers'
 
 /**
@@ -7,13 +10,13 @@ import Modifiers from './Modifiers'
  *        {string} options.baseClass = ''
  */
 class Classes {
-  private baseClass: string
-  private elementSymbol: string
+  private readonly baseClass: string
+  private readonly elementSymbol: string
   private modificationSymbol: string
-  private classesArr: any[]
-  private Modifiers: Modifiers;
+  private classesArr: string[]
+  private Modifiers: ModifiersInterface
 
-  constructor (options) {
+  constructor (options: ClassesOptionsInterface) {
     options = {
       elementSymbol: '__',
       modificationSymbol: '--',
@@ -52,14 +55,14 @@ class Classes {
       let modifiers = className.m
 
       if (!isElement) {
-        this.classesArr = this.Modifiers.addModifiersToElement(this.baseClass, modifiers, this.classesArr)
+        this.classesArr = this.Modifiers.addModifiersToElement(modifiers, this.baseClass, this.classesArr)
 
         return
       }
 
       if (!className[element]) return
 
-      this.classesArr = this.Modifiers.addModifiersToElement(element, modifiers, this.classesArr)
+      this.classesArr = this.Modifiers.addModifiersToElement(modifiers, element, this.classesArr)
         .map(element => [this.baseClass, element].join(this.elementSymbol))
     })
 
