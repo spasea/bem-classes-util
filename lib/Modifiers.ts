@@ -3,7 +3,7 @@ import { ModifiersInterface } from '../interfaces/Modifiers.interface'
 class Modifiers implements ModifiersInterface {
   private readonly modificationSymbol: string
 
-  constructor (modificationSymbol: string) {
+  constructor (modificationSymbol: string = '--') {
     this.modificationSymbol = modificationSymbol
   }
 

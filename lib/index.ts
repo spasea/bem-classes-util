@@ -39,7 +39,7 @@ class Classes {
    *        options.m {Array|Object|String|null}
    * @returns {String}
    */
-  classList (options = undefined) {
+  classList (options: string[] | object | string | undefined = undefined) {
     if (options === undefined) {
       return this.baseClass
     }
@@ -48,7 +48,7 @@ class Classes {
 
     this.classesArr = []
 
-    options = Classes.optionsToArray(options)
+    options = Classes.optionsFactory(options)
 
     options.forEach(className => {
       let element = Object.keys(className)[0]
@@ -88,11 +88,11 @@ class Classes {
    * @param options
    * @returns {Array}
    */
-  static optionsToArray (options: any) {
+  static optionsFactory (options: string | string[] | object) {
     const isString = typeof options === "string"
-    const isArray = options.length === undefined
+    const notArray = typeof options === "object" && !Array.isArray(options)
 
-    if (isArray) {
+    if (notArray) {
       options = [options]
     }
 

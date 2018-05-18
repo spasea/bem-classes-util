@@ -1,22 +1,27 @@
 import Classes from '../lib/index'
+import ModifiersMock from './Modifiers.mock'
 
-describe('Base class testing', () => {
-  it('get base name', () => {
-    const cl = new Classes({ baseClass: 'search' })
+const cl = new Classes({ baseClass: 'search', Modifiers: new ModifiersMock() })
 
-    expect(cl.result()).toEqual({ className: 'search' })
-  })
-
-  it('get base name from list', () => {
-    const cl = new Classes({ baseClass: 'search' })
-
+describe('classList', () => {
+  it('check undefined', () => {
     expect(cl.classList()).toBe('search')
   })
 
-  it('get base name with modifier', () => {
-    const cl = new Classes({ baseClass: 'search' })
+  it('check string', () => {
+    expect(cl.classList('elem')).toBe('search__elem')
+  })
 
-    expect(cl.result({ m: 'test' })).toEqual({ className: 'search search--test' })
+  it('check array', () => {
+    expect(cl.classList(['elem'])).toBe('search__elem')
+  })
+
+  it('check object wo modifiers', () => {
+    expect(cl.classList({ elem: true })).toBe('search__elem')
+  })
+
+  it('check object with modifiers as string', () => {
+    expect(cl.classList({ elem: true, m: 'elem' })).toBe('search__elem search__elem--elem')
   })
 })
 
