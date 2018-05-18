@@ -6,7 +6,7 @@
   "module": "lib/index.ts",
   "author": "Peter Smaznoy <ithespv@gmail.com>",
   "license": "MIT",
-  "repository": "https://github.com/spasea/bem-classnames-util.git",
+  "repository": "https://github.com/spasea/bem-classes-util.git",
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watchAll",
