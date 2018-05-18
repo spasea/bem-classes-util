@@ -17,6 +17,16 @@ There is an option to configure modifications symbol and elements symbol
   })
 ```
 
+Methods 
+```javascript
+  result() // --> { className: '...' }
+```
+and 
+```javascript
+  classList() // --> '...'
+```
+are the same expect the returning value
+
 ## Elements
 If you need only to add an element you can simply pass a string to this method
 ```javascript
