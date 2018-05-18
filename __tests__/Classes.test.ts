@@ -42,14 +42,12 @@ describe('classList single element', () => {
 })
 
 describe('classList multiple elements', () => {
-  const cls = new Classes({ baseClass: 'search' })
-
   it('check elements as array', () => {
-    expect(cls.classList(['element1', 'element2'])).toBe('search__element1 search__element2')
+    expect(cl.classList(['element1', 'element2'])).toBe('search__element1 search__element2')
   })
 
   it('check elements as object', () => {
-    expect(cls.classList([{'element1': true}, {'element2': true}])).toBe('search__element1 search__element2')
+    expect(cl.classList([{'element1': true}, {'element2': true}])).toBe('search__element1 search__element2')
   })
 })
 

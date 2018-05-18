@@ -11,6 +11,8 @@ addModifiersToElem
   .mockReturnValueOnce(['elem', 'elem--mod'])
   .mockReturnValueOnce(['elem', 'elem--mod'])
   .mockReturnValueOnce(['element1', 'element2'])
+  .mockReturnValueOnce(['element1', 'element2'])
+  .mockReturnValueOnce(['element1', 'element2'])
   .mockReturnValueOnce(['elem', 'elem--mod'])
 
 class ModifiersMock implements ModifiersInterface {
