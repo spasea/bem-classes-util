@@ -8,6 +8,10 @@ describe('classList', () => {
     expect(cl.classList()).toBe('search')
   })
 
+  it('check with modifier', () => {
+    expect(cl.classList({ m: 'mod' })).toBe('search search--mod')
+  })
+
   it('check string', () => {
     expect(cl.classList('elem')).toBe('search__elem')
   })
@@ -20,79 +24,55 @@ describe('classList', () => {
     expect(cl.classList({ elem: true })).toBe('search__elem')
   })
 
+  it('check object with modifiers as array', () => {
+    expect(cl.classList({ elem: true, m: ['mod-1', 'mod-2'] })).toBe('search__elem search__elem--mod-1 search__elem--mod-2')
+  })
+
+  it('check object with modifiers as object and no element', () => {
+    expect(cl.classList({ elem: false, m: {'mod': true, 'mod-2': false} })).toBe('')
+  })
+
   it('check object with modifiers as string', () => {
-    expect(cl.classList({ elem: true, m: 'elem' })).toBe('search__elem search__elem--elem')
+    expect(cl.classList({ elem: true, m: 'mod' })).toBe('search__elem search__elem--mod')
+  })
+
+  it('check object with modifiers as object', () => {
+    expect(cl.classList({ elem: true, m: {'mod': true, 'mod-2': false} })).toBe('search__elem search__elem--mod')
   })
 })
 
-describe('Element testing', () => {
-  it('element name', () => {
-    const cl = new Classes({ baseClass: 'search' })
-
-    expect(cl.result('element')).toEqual({ className: 'search__element' })
-  })
-
-  it('not element name with modifiers object', () => {
-    const cl = new Classes({ baseClass: 'search' })
-
-    expect(cl.result({
-      'element': false,
-      m: {
-        'one-modifier': true,
-        'second': true,
-        'third': false,
-      }
-    }))
-      .toEqual({ className: '' })
+describe('result', () => {
+  it('check object with modifiers as object', () => {
+    expect(cl.result({ elem: true, m: {'mod': true, 'mod-2': false} })).toEqual({ className: 'search__elem search__elem--mod' })
   })
 })
 
-describe('Static methods testing', () => {
-  it('getting classlist with the concating method from array', () => {
-    expect(Classes.getClassesList(['class1', 'class2'])).toBe('class1 class2')
+describe('optionsFactory', () => {
+  it('check options as a string', () => {
+    expect(Classes.optionsFactory('option')).toEqual([{ option: true }])
   })
 
-  it('getting classlist object with the concating method from object', () => {
-    expect(Classes.resultList({
-      'class1': true,
-      'class2': true,
-      'class3': false
-    })).toEqual({ className: 'class1 class2' })
+  it('check options as an object', () => {
+    expect(Classes.optionsFactory({ option: true })).toEqual([{ option: true }])
+  })
+
+  it('check options as an array', () => {
+    expect(Classes.optionsFactory([{ option: true }])).toEqual([{ option: true }])
   })
 })
 
-describe('Modifiers testing', () => {
-  it('element name with modifier', () => {
-    const cl = new Classes({ baseClass: 'search' })
-
-    expect(cl.result({
-      'element': true,
-      m: 'one-modifier'
-    }))
-      .toEqual({ className: 'search__element search__element--one-modifier' })
+describe('getClassesList', () => {
+  it('check options as an object', () => {
+    expect(Classes.getClassesList({'class': true, 'class2': false})).toBe('class')
   })
 
-  it('element name with modifiers array', () => {
-    const cl = new Classes({ baseClass: 'search' })
-
-    expect(cl.result({
-      'element': true,
-      m: ['one-modifier', 'second']
-    }))
-      .toEqual({ className: 'search__element search__element--one-modifier search__element--second' })
+  it('check options as an array', () => {
+    expect(Classes.getClassesList(['class', 'class2'])).toBe('class class2')
   })
+})
 
-  it('element name with modifiers object', () => {
-    const cl = new Classes({ baseClass: 'search' })
-
-    expect(cl.result({
-      'element': true,
-      m: {
-        'one-modifier': true,
-        'second': true,
-        'third': false,
-      }
-    }))
-      .toEqual({ className: 'search__element search__element--one-modifier search__element--second' })
+describe('resultList', () => {
+  it('check options as an object', () => {
+    expect(Classes.resultList({'class': true, 'class2': false})).toEqual({className: 'class'})
   })
 })

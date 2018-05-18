@@ -1,16 +1,28 @@
 import { ModifiersInterface } from "../interfaces/Modifiers.interface"
 
+const addModifiersToElem = jest.fn()
+addModifiersToElem
+  .mockReturnValueOnce(['search search--mod'])
+  .mockReturnValueOnce(['elem'])
+  .mockReturnValueOnce(['elem'])
+  .mockReturnValueOnce(['elem'])
+  .mockReturnValueOnce(['elem', 'elem--mod-1', 'elem--mod-2'])
+  .mockReturnValue(['elem', 'elem--mod'])
+
 class ModifiersMock implements ModifiersInterface {
   addModifiersToElement(modifiers: object | string | string[], element: string, commonArray: string[]): string[] {
-    return ['elem'];
+    this.elementModifiersFactory(modifiers)
+    this.modifiersObjectMap(modifiers)
+
+    return addModifiersToElem()
   }
 
   elementModifiersFactory(modifiers: object | string | string[]): string[] {
-    return undefined;
+    return undefined
   }
 
   modifiersObjectMap(modifiers: object): string[] {
-    return undefined;
+    return undefined
   }
 }
 

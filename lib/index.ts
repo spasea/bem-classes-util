@@ -89,14 +89,11 @@ class Classes {
    * @returns {Array}
    */
   static optionsFactory (options: string | string[] | object) {
-    const isString = typeof options === "string"
-    const notArray = typeof options === "object" && !Array.isArray(options)
-
-    if (notArray) {
+    if (typeof options === "object" && !Array.isArray(options)) {
       options = [options]
     }
 
-    if (isString) {
+    if (typeof options === "string") {
       options = [{
         [options]: true
       }]
@@ -105,7 +102,7 @@ class Classes {
     return options
   }
 
-  static getClassesList (list) {
+  static getClassesList (list: string[] | object) {
     let classesArr = []
 
     if (Array.isArray(list)) return list.join(' ')
