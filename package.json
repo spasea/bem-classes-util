@@ -32,9 +32,14 @@
     "webpack": "3"
   },
   "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
     "transform": {
+      "^.+\\.(ts)$": "<rootDir>/preprocessor.js",
       "^.+\\.js$": "babel-jest"
-    }
-  },
-  "dependencies": {}
+    },
+    "testRegex": "^.+\\.test\\.(ts|js)$"
+  }
 }
