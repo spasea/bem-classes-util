@@ -1,4 +1,4 @@
-import Modifiers from 'lib/Modifiers.js'
+import Modifiers from './Modifiers'
 
 /**
  * @param {Object} options
@@ -7,11 +7,18 @@ import Modifiers from 'lib/Modifiers.js'
  *        {string} options.baseClass = ''
  */
 class Classes {
+  private baseClass: string
+  private elementSymbol: string
+  private modificationSymbol: string
+  private classesArr: any[]
+  private Modifiers: Modifiers;
+
   constructor (options) {
     options = {
       elementSymbol: '__',
       modificationSymbol: '--',
       baseClass: '',
+      Modifiers: new Modifiers('--'),
       ...options
     }
 
@@ -20,7 +27,7 @@ class Classes {
     this.modificationSymbol = options.modificationSymbol
     this.classesArr = []
 
-    this.Modifiers = new Modifiers(this.modificationSymbol)
+    this.Modifiers = options.Modifiers
   }
 
   /**
@@ -114,4 +121,4 @@ class Classes {
 
 export default Classes
 
-export const cls = new Classes()
+export const cls = new Classes({})

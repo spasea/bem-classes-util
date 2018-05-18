@@ -1,1 +1,120 @@
-"use strict";function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function _defineProperty(e,s,r){return s in e?Object.defineProperty(e,s,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[s]=r,e}function _classCallCheck(e,s){if(!(e instanceof s))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(exports,"__esModule",{value:!0}),exports.cls=void 0;var _extends=Object.assign||function(e){for(var s=1;s<arguments.length;s++){var r=arguments[s];for(var t in r)Object.prototype.hasOwnProperty.call(r,t)&&(e[t]=r[t])}return e},_createClass=function(){function e(e,s){for(var r=0;r<s.length;r++){var t=s[r];t.enumerable=t.enumerable||!1,t.configurable=!0,"value"in t&&(t.writable=!0),Object.defineProperty(e,t.key,t)}}return function(s,r,t){return r&&e(s.prototype,r),t&&e(s,t),s}}(),_Modifiers=require("./lib/Modifiers"),_Modifiers2=_interopRequireDefault(_Modifiers),Classes=function(){function e(s){_classCallCheck(this,e),s=_extends({elementSymbol:"__",modificationSymbol:"--",baseClass:""},s),this.baseClass=s.baseClass,this.elementSymbol=s.elementSymbol,this.modificationSymbol=s.modificationSymbol,this.classesArr=[],this.Modifiers=new _Modifiers2.default(this.modificationSymbol)}return _createClass(e,[{key:"classList",value:function(){var s=this,r=arguments.length>0&&void 0!==arguments[0]?arguments[0]:void 0;if(void 0===r)return this.baseClass;var t="m"!==Object.keys(r)[0];return this.classesArr=[],r=e.optionsToArray(r),r.forEach(function(e){var r=Object.keys(e)[0],i=e.m;if(!t)return void(s.classesArr=s.Modifiers.addModifiersToElement(s.baseClass,i,s.classesArr));e[r]&&(s.classesArr=s.Modifiers.addModifiersToElement(r,i,s.classesArr).map(function(e){return[s.baseClass,e].join(s.elementSymbol)}))}),this.classesArr.join(" ").trim()}},{key:"result",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:void 0;return void 0===e?{className:this.baseClass}:{className:this.classList(e)}}}],[{key:"optionsToArray",value:function(e){var s="string"==typeof e;return void 0===e.length&&(e=[e]),s&&(e=[_defineProperty({},e,!0)]),e}},{key:"getClassesList",value:function(e){var s=[];if(Array.isArray(e))return e.join(" ");for(var r in e)e[r]&&s.push(r);return s.join(" ")}},{key:"resultList",value:function(s){return{className:e.getClassesList(s)}}}]),e}();exports.default=Classes;var cls=exports.cls=new Classes;
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define("Classes", [], factory);
+	else if(typeof exports === 'object')
+		exports["Classes"] = factory();
+	else
+		root["Classes"] = factory();
+})(typeof self !== 'undefined' ? self : this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(1);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor)
+        descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+} } return function (Constructor, protoProps, staticProps) { if (protoProps)
+    defineProperties(Constructor.prototype, protoProps); if (staticProps)
+    defineProperties(Constructor, staticProps); return Constructor; }; }();
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+} }
+var Test = function () {
+    function Test(name) {
+        _classCallCheck(this, Test);
+        this._name = name;
+    }
+    _createClass(Test, [{
+            key: "result",
+            value: function result() {
+                return { className: this._name.baseClass };
+            }
+        }]);
+    return Test;
+}();
+/* harmony default export */ __webpack_exports__["default"] = (Test);
+
+
+/***/ })
+/******/ ])["default"];
+});

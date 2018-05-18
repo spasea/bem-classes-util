@@ -1,12 +1,15 @@
 {
   "presets": [
-    "env"
+    ["env", {
+      "modules": false
+    }]
   ],
   "plugins": [
     ["module-resolver", {
       "alias": {
         "lib": "./lib"
       }
-    }]
+    }],
+    "syntax-dynamic-import"
   ]
 }
