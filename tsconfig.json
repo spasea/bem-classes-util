@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-//    "baseUrl": ".",
-//    "paths": {
-//      "lib/*": ["lib/*"]
-//    },
+    "baseUrl": ".",
+    "paths": {
+      "lib/*": ["lib/*"]
+    },
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "module": "es2015",
