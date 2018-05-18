@@ -7,7 +7,11 @@ addModifiersToElem
   .mockReturnValueOnce(['elem'])
   .mockReturnValueOnce(['elem'])
   .mockReturnValueOnce(['elem', 'elem--mod-1', 'elem--mod-2'])
-  .mockReturnValue(['elem', 'elem--mod'])
+  .mockReturnValueOnce(['elem', 'elem--mod'])
+  .mockReturnValueOnce(['elem', 'elem--mod'])
+  .mockReturnValueOnce(['elem', 'elem--mod'])
+  .mockReturnValueOnce(['element1', 'element2'])
+  .mockReturnValueOnce(['elem', 'elem--mod'])
 
 class ModifiersMock implements ModifiersInterface {
   addModifiersToElement(modifiers: object | string | string[], element: string, commonArray: string[]): string[] {

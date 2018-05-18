@@ -44,17 +44,18 @@ class Classes {
       return this.baseClass
     }
 
-    const isElement = Object.keys(options)[0] !== 'm'
-
+    const isBlock = Object.keys(options)[0] === 'm' && typeof options === 'object'
     this.classesArr = []
 
     options = Classes.optionsFactory(options)
 
     options.forEach(className => {
+      className = Classes.optionsFactory(className)[0]
+
       let element = Object.keys(className)[0]
       let modifiers = className.m
 
-      if (!isElement) {
+      if (element === 'm') {
         this.classesArr = this.Modifiers.addModifiersToElement(modifiers, this.baseClass, this.classesArr)
 
         return
@@ -63,8 +64,12 @@ class Classes {
       if (!className[element]) return
 
       this.classesArr = this.Modifiers.addModifiersToElement(modifiers, element, this.classesArr)
-        .map(element => [this.baseClass, element].join(this.elementSymbol))
     })
+
+    this.classesArr = isBlock
+      ? this.classesArr
+      : this.classesArr
+        .map(element => [this.baseClass, element].join(this.elementSymbol))
 
     return this.classesArr.join(' ').trim()
   }

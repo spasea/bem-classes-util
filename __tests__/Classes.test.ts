@@ -3,7 +3,7 @@ import ModifiersMock from './Modifiers.mock'
 
 const cl = new Classes({ baseClass: 'search', Modifiers: new ModifiersMock() })
 
-describe('classList', () => {
+describe('classList single element', () => {
   it('check undefined', () => {
     expect(cl.classList()).toBe('search')
   })
@@ -38,6 +38,18 @@ describe('classList', () => {
 
   it('check object with modifiers as object', () => {
     expect(cl.classList({ elem: true, m: {'mod': true, 'mod-2': false} })).toBe('search__elem search__elem--mod')
+  })
+})
+
+describe('classList multiple elements', () => {
+  const cls = new Classes({ baseClass: 'search' })
+
+  it('check elements as array', () => {
+    expect(cls.classList(['element1', 'element2'])).toBe('search__element1 search__element2')
+  })
+
+  it('check elements as object', () => {
+    expect(cls.classList([{'element1': true}, {'element2': true}])).toBe('search__element1 search__element2')
   })
 })
 
