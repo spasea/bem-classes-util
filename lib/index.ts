@@ -7,11 +7,18 @@ import Modifiers from './Modifiers'
  *        {string} options.baseClass = ''
  */
 class Classes {
+  private baseClass: string
+  private elementSymbol: string
+  private modificationSymbol: string
+  private classesArr: any[]
+  private Modifiers: Modifiers;
+
   constructor (options) {
     options = {
       elementSymbol: '__',
       modificationSymbol: '--',
       baseClass: '',
+      Modifiers: new Modifiers('--'),
       ...options
     }
 
@@ -20,7 +27,7 @@ class Classes {
     this.modificationSymbol = options.modificationSymbol
     this.classesArr = []
 
-    this.Modifiers = new Modifiers(this.modificationSymbol)
+    this.Modifiers = options.Modifiers
   }
 
   /**
@@ -78,7 +85,7 @@ class Classes {
    * @param options
    * @returns {Array}
    */
-  static optionsToArray (options) {
+  static optionsToArray (options: any) {
     const isString = typeof options === "string"
     const isArray = options.length === undefined
 
@@ -113,5 +120,3 @@ class Classes {
 }
 
 export default Classes
-
-export const cls = new Classes()
