@@ -22,4 +22,4 @@ In short: fork, make your changes, and submit a pull request.
 
 ## Testing
 
-You can run all the tests (in both test packs) with `yarn test`.
+You can run all the tests with `yarn test`.
