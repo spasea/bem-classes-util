@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/spasea/bem-classes-util.svg?branch=master)](https://travis-ci.org/spasea/bem-classes-util)
+
 # This is a utility to manage classnames with convenience based on BEM methodology
 
 ## Creating instance
