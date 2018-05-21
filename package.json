@@ -1,6 +1,6 @@
 {
   "name": "bem-classes-util",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A utility to manage classnames conveniently",
   "main": "index.js",
   "module": "lib/index.ts",
