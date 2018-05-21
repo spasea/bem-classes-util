@@ -49,6 +49,7 @@ class Classes {
 
     options = Classes.optionsFactory(options)
 
+    // @ts-ignore
     options.forEach(className => {
       className = Classes.optionsFactory(className)[0]
 
@@ -119,8 +120,16 @@ class Classes {
     return classesArr.join(' ')
   }
 
-  static resultList (list) {
+  static multiClasses (list: Classes[] | object) {
+    return Classes.getClassesList(list)
+  }
+
+  static resultList (list: string[] | object) {
     return {className: Classes.getClassesList(list)}
+  }
+
+  static multiList (list: Classes[] | object) {
+    return Classes.resultList(list)
   }
 }
 
