@@ -70,3 +70,19 @@ If you need just a list with classnames from the array or an object with stateme
   Classes.getClassesList({ 'class1': true, 'class2': false }) // --> 'class1'
   Classes.getClassesList([ 'class1' ]) // --> 'class1'
 ```
+
+If you need to create multiple blocks in single class name and get the list
+```javascript
+  const SW = new Classes({ baseClass: 'site-wrapper' })
+  const HD = new Classes({ baseClass: 'header' })
+
+  Classes.multiClasses([ SW.classList('element-1'), HD.classList('element-2') ]) // --> 'site-wrapper__element-1 header__element-2'
+```
+
+If you need to create multiple blocks in single class name
+```javascript
+  const SW = new Classes({ baseClass: 'site-wrapper' })
+  const HD = new Classes({ baseClass: 'header' })
+
+  Classes.multiList([ SW.classList('element-1'), HD.classList('element-2') ]) // --> { className: 'site-wrapper__element-1 header__element-2' }
+```
