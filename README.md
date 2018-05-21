@@ -88,3 +88,11 @@ If you need to create multiple blocks in single class name
 
   Classes.multiList([ SW.classList('element-1'), HD.classList('element-2') ]) // --> { className: 'site-wrapper__element-1 header__element-2' }
 ```
+
+## Contributing
+
+Feel free to contribute; see the [contributor's guide](CONTRIBUTING.md) to get started.
+
+## License
+
+MIT License
