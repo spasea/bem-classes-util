@@ -92,7 +92,3 @@ If you need to create multiple blocks in single class name
 ## Contributing
 
 Feel free to contribute; see the [contributor's guide](CONTRIBUTING.md) to get started.
-
-## License
-
-MIT License
