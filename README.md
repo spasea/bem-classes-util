@@ -1,3 +1,4 @@
+[![npm](https://img.shields.io/npm/v/bem-classes-util.svg)](https://www.npmjs.com/package/bem-classes-util)
 [![Build Status](https://travis-ci.org/spasea/bem-classes-util.svg?branch=master)](https://travis-ci.org/spasea/bem-classes-util)
 
 # This is a utility to manage classnames with convenience based on BEM methodology
